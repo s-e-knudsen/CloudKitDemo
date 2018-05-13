@@ -40,9 +40,21 @@ class ViewController: UIViewController {
                 return
                 
             } else {
+                print("Adding record")
                 print("record saved successuly")
             }
         }
+        
+        //Fetching a Cloudkit record. This ID 115
+        publicDatabase.fetch(withRecordID: artworkRecordID) { (record, error) in
+            if let error = error {
+                print(error)
+            } else {
+                print("The rocord is:")
+                print(record ?? "defauld value")
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
